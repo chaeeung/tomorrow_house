@@ -5,4 +5,18 @@
 @import './base/normalize';
 @import './base/reset';
 
+@import './mixins/text-style';
+
 @import './layouts/grids';
+
+// @mixin angggoo($color) {
+//   color: $color;
+
+//   .ic-close {
+//     width: 40px;
+//   }
+// }
+
+// p {
+//   @include angggoo(blue);
+// }
