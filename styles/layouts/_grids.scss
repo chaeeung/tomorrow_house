@@ -36,6 +36,11 @@ $md-columns: 12;
 $md-margin: 30px;
 $md-max-container: 960px;
 
+$lg-breakpoint: 1200px;
+$lg-columns: 12;
+$lg-unit: 75px;
+$lg-max-container: ($lg-unit + $gutter) * $lg-columns;
+
 .container {
   // 컨테이너는 상위 요소의 전체 너비를 차지한다
   width: 100%;
@@ -64,11 +69,21 @@ $md-max-container: 960px;
 
   @media screen and (min-width: $md-breakpoint) {
     max-width: $md-max-container;
-    padding: 0 3$md-margin;
+    padding: 0 $md-margin;
+
+    @for $i from 1 through $md-columns {
+      .col-md-#{$i} {
+        width: percentage($i/$md-columns);
+      }
+    }
   }
-  @for $i from 1 through $md-columns {
-    .col-md-#{i} {
-      width: percentage($i/$md-columns);
+  @media screen and (min-width: $lg-breakpoint) {
+    max-width: $lg-max-container;
+    padding: 0;
+    @for $i from 1 through $lg-columns {
+      .col-lg-#{$i} {
+        width: ($lg-unit + $gutter) * $i;
+      }
     }
   }
 }
